@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Celebration</title>
+    <title>Happy Birthday, Muskan!</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,6 +15,17 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            background-color: #f0f0f0;
+            transition: background-color 1s ease; /* Add transition for smooth color change */
+        }
+
+        h1 {
+            color: #e74c3c;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
         }
 
         button {
@@ -26,6 +36,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 20px;
         }
 
         #celebration-container {
@@ -35,7 +46,7 @@
         }
 
         .emoji-rain {
-            animation: emojiFall  1s linear infinite;
+            animation: emojiFall 4s linear infinite; /* Adjust duration for slower/faster animation */
             pointer-events: none;
             position: absolute;
         }
@@ -53,65 +64,50 @@
             font-size: 24px;
             margin-top: 20px;
         }
-        #user-picture {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 20px;
-            display: none; /* Initially hide the user picture */
-        }
     </style>
 </head>
 <body>
-<h2>hey muskieeesszzz aditya here your friend 🥲... i hope i could be with you ... but here is a small celebration for you 😍🎉🎁🎊🥳 do tap </h2>
+
+<h1>Hey Muskieeesszzz!</h1>
+<p>Aditya here, your friend 🥲. I hope I could be with you, but here's a small celebration for you 😍🎉🎁🎊🥳. Do tap the button below!</p>
+
 <button id="celebrateButton" onclick="startCelebration()">Tap to Celebrate!</button>
 
 <div id="celebration-container">
     <!-- Add more celebration emojis here -->
-    <div class="emoji-rain">🥳</div>
-    <div class="emoji-rain">✨</div>
-    <div class="emoji-rain">🎂</div>
-    <div class="emoji-rain">🎁</div>
+    <div class="emoji-rain">😍</div>
     <div class="emoji-rain">🎉</div>
+    <div class="emoji-rain">🎁</div>
     <div class="emoji-rain">🎊</div>
     <div class="emoji-rain">🥳</div>
-    <div class="emoji-rain">✨</div>
-    <div class="emoji-rain">🎂</div>
-    <div class="emoji-rain">🎁</div>
-    <div class="emoji-rain">🎉</div>
-    <div class="emoji-rain">🎊</div>
-    <div class="emoji-rain">🥳</div>
-    <div class="emoji-rain">✨</div>
-    <div class="emoji-rain">🎂</div>
-    <div class="emoji-rain">🎁</div>
-    <div class="emoji-rain">🎉</div>
-    <div class="emoji-rain">🎊</div>
 
     <div id="birthday-message">Happy Birthday Muskan! 🎈🎉🥳</div>
-    <img id="user-picture" src="https://ibb.co/MGj2j7s" alt="Muskan's Picture">
 </div>
-    
-
 
 <script>
     function startCelebration() {
+        // Erase the initial message
+        document.querySelector('h1').style.display = 'none';
+        document.querySelector('p').style.display = 'none';
         document.getElementById('celebrateButton').style.display = 'none';
+
+        // Change the background color
+        document.body.style.backgroundColor = 'transparent'; // Remove the background color
+        // Set the background image
+        document.body.style.backgroundImage = "url('https://i.ibb.co/MGj2j7s/muskan-background.jpg')";
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundRepeat = 'no-repeat';
+        document.body.style.backgroundPosition = 'center';
+
+        // Display the celebration container
         document.getElementById('celebration-container').style.display = 'block';
 
         // Adjust the number of emojis and their positions as needed
-        createEmoji('🥳', 50, 20);
-        createEmoji('✨', 100, 50);
-        createEmoji('🎂', 150, 80);
-        createEmoji('🎁', 50, 110);
-        createEmoji('🎉', 250, 140);
-        createEmoji('🎊', 100, 170);
-        createEmoji('🥳', 100, 20);
-        createEmoji('✨', 50, 50);
-        createEmoji('🎂', 450, 80);
-        createEmoji('🎁', 500, 110);
-        createEmoji('🎉', 550, 140);
-        createEmoji('🎊', 460, 170);
-        document.getElementById('user-picture').style.display = 'block';
-
+        createEmoji('😍', 100, 20);
+        createEmoji('🎉', 200, 50);
+        createEmoji('🎁', 300, 80);
+        createEmoji('🎊', 400, 110);
+        createEmoji('🥳', 500, 140);
     }
 
     function createEmoji(emoji, left, delay) {
