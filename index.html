@@ -74,14 +74,7 @@
 <button id="celebrateButton" onclick="startCelebration()">Tap to Celebrate!</button>
 
 <div id="celebration-container">
-    <!-- Add more celebration emojis here -->
-    <div class="emoji-rain">😍</div>
-    <div class="emoji-rain">🎉</div>
-    <div class="emoji-rain">🎁</div>
-    <div class="emoji-rain">🎊</div>
-    <div class="emoji-rain">🥳</div>
-
-    <div id="birthday-message">Happy Birthday Muskan! 🎈🎉🥳</div>
+    <!-- Dynamic creation of emojis -->
 </div>
 
 <script>
@@ -94,7 +87,7 @@
         // Change the background color
         document.body.style.backgroundColor = 'transparent'; // Remove the background color
         // Set the background image
-        document.body.style.backgroundImage = "url('https://ibb.co/KKKqSd8/muskan-background.jpg')";
+        document.body.style.backgroundImage = "url('https://i.ibb.co/MGj2j7s/muskan-background.jpg')";
         document.body.style.backgroundSize = 'cover';
         document.body.style.backgroundRepeat = 'no-repeat';
         document.body.style.backgroundPosition = 'center';
@@ -102,21 +95,27 @@
         // Display the celebration container
         document.getElementById('celebration-container').style.display = 'block';
 
-        // Adjust the number of emojis and their positions as needed
-        createEmoji('😍', 100, 20);
-        createEmoji('🎉', 200, 50);
-        createEmoji('🎁', 300, 80);
-        createEmoji('🎊', 400, 110);
-        createEmoji('🥳', 500, 140);
+        // Create a large number of emojis
+        for (let i = 0; i < 500; i++) {
+            createEmoji(getRandomEmoji(), Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+        }
+
+        // Display the birthday message
+        document.getElementById('birthday-message').innerText = "Happy Birthday Muskan! 🎈🎉🥳";
     }
 
-    function createEmoji(emoji, left, delay) {
+    function createEmoji(emoji, left, top) {
         const emojiElement = document.createElement('div');
         emojiElement.classList.add('emoji-rain');
         emojiElement.textContent = emoji;
         emojiElement.style.left = `${left}px`;
-        emojiElement.style.animationDelay = `${delay}ms`;
+        emojiElement.style.top = `${top}px`;
         document.getElementById('celebration-container').appendChild(emojiElement);
+    }
+
+    function getRandomEmoji() {
+        const emojis = ['😀', '😍', '🎉', '🎁', '🎊', '🥳', '🍰', '🎈', '🎂', '❤️', '🌟', '🌈', '🎶', '🌺', '🎀'];
+        return emojis[Math.floor(Math.random() * emojis.length)];
     }
 </script>
 
