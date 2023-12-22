@@ -56,8 +56,7 @@
     </style>
 </head>
 <body>
-<h2>Hey Muskieeesszzz!
-Aditya here, your friend 🥲. I hope I could be with you, but here's a small celebration for you 😍🎉🎁🎊🥳. Do tap the button below</h2>
+
 <button id="celebrateButton" onclick="startCelebration()">Tap to Celebrate!</button>
 
 <div id="celebration-container">
@@ -69,14 +68,23 @@ Aditya here, your friend 🥲. I hope I could be with you, but here's a small ce
     <div class="emoji-rain">🎉</div>
     <div class="emoji-rain">🎊</div>
 
-    <div id="birthday-message">Happy Birthday Muskan! 🎈🎉🥳</div>
+    <div id="birthday-message">Happy Birthday Muskieeesszzz! 🎈🎉🥳</div>
 </div>
 
 <script>
     function startCelebration() {
+        // Hide the button
         document.getElementById('celebrateButton').style.display = 'none';
+
+        // Display the celebration container
         document.getElementById('celebration-container').style.display = 'block';
 
+        // Remove the existing emojis
+        document.querySelectorAll('.emoji-rain').forEach(emoji => emoji.remove());
+
+        // Display the birthday message
+        document.getElementById('birthday-message').innerText = "Happy Birthday Muskieeesszzz! 🎈🎉🥳";
+        
         // Adjust the number of emojis and their positions as needed
         createEmoji('🥳', 100, 20);
         createEmoji('✨', 200, 50);
